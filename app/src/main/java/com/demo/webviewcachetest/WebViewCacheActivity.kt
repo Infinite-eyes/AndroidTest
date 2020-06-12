@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
 import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.widget.LinearLayout
@@ -68,6 +69,20 @@ class WebViewCacheActivity : AppCompatActivity() {
                 super.onPageStarted(view, url, favicon)
 //                Log.i("Info", "BaseWebActivity onPageStarted")
             }
+
+            override fun shouldInterceptRequest(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): WebResourceResponse? {
+                return super.shouldInterceptRequest(view, request)
+            }
+
+
+            override fun onLoadResource(view: WebView?, url: String?) {
+                super.onLoadResource(view, url)
+            }
+
+
         }
 
     private val mWebChromeClient: WebChromeClient =
@@ -75,6 +90,7 @@ class WebViewCacheActivity : AppCompatActivity() {
             override fun onReceivedTitle(view: WebView?, title: String?) {
                 super.onReceivedTitle(view, title)
             }
+
         }
 
     fun getUrl(): String? {
