@@ -3,6 +3,7 @@ package com.demo.webviewcachetest
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
@@ -32,7 +33,9 @@ class WebViewCacheActivity : AppCompatActivity() {
         setContentView(R.layout.webview_cache_activity)
 
 
-        WebView.setWebContentsDebuggingEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WebView.setWebContentsDebuggingEnabled(true)
+        };
 
         mLinearLayout = findViewById(R.id.container) as LinearLayout
 //
