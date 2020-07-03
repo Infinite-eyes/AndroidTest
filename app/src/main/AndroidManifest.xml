@@ -16,7 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--        <activity android:name="com.demo.okhttpcachetest.MainActivity">-->
         <activity android:name="com.demo.recycleview.RecycleViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +23,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.demo.glidetest.GlideActivity" />
 
 
-        <!--                <activity android:name="com.demo.okhttpcachetest.MainActivity"/>-->
-        <!--        <activity android:name="com.demo.webviewcachetest.WebViewCacheActivity"/>-->
-        <!--        <activity android:name="com.demo.glidetest.GlideActivity" />-->
+        <activity android:name="com.demo.glidetest.GlideActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name="com.demo.okhttpcachetest.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.demo.webviewcachetest.WebViewCacheActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
 
     </application>
 
