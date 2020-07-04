@@ -1,18 +1,24 @@
 package com.demo.glidetest
 
 import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.widget.ImageView
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.BitmapImageViewTarget
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.demo.androidtest.R
+import com.demo.glidetest.module.GlideApp
+import com.demo.glidetest.transformation.RoundedCornersTransform
+import com.demo.glidetest.transformation.RoundedCornersTransformation
 import com.demo.utils.dip2px
+import com.demo.utils.widthPixels
 import java.io.File
 
 
@@ -25,21 +31,22 @@ import java.io.File
 class GlideActivity : AppCompatActivity() {
 
 
+    lateinit var iv: ImageView
+    var url =
+//            "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1983299352,541571503&fm=26&gp=0.jpg";
+        "http://huabeifile.grayoss.com/data/20200630/1593496841441612501034.png";
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.glide_test_activity)
-
-
-        var url =
-//            "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1983299352,541571503&fm=26&gp=0.jpg";
-            "http://huabeifile.grayoss.com/data/20200630/1593496841441612501034.png";
+        iv = findViewById<ImageView>(R.id.iv_1);
 
 //            "http://huabeifile.grayoss.com/data/20200701/1593594158744665741429.png"
 
         //work
 
 //        var roundedCorners = RoundedCorners(dip2px(this, 35f));
-//
 //        var options = RequestOptions.bitmapTransform(roundedCorners).override(
 //            this.widthPixels, dip2px(this, 100f)
 //        );
@@ -117,30 +124,8 @@ class GlideActivity : AppCompatActivity() {
         val options = RequestOptions.bitmapTransform(roundedCorners)
             .override(dip2px(this, 360f), dip2px(this, 100f))
 
-//        val requestBuilder: RequestBuilder<Drawable> =
-
-
-
-
         var offset = dip2px(this, 50f)
 
-//        Glide.with(this)
-//            .asDrawable()
-//            .load(url)
-//            .apply(options)
-//            .transform(RoundedCornersTransformation(offset, 0))
-//            .into(findViewById(R.id.iv_1))
-
-
-//        Glide.with(this).load(url).asBitmap().centerCrop()
-//            .into(object : BitmapImageViewTarget(findViewById(R.id.iv_1)) {
-//                override fun setResource(resource: Bitmap?) {
-//                    val circularBitmapDrawable =
-//                        RoundedBitmapDrawableFactory.create(this.getResources(), resource)
-//                    circularBitmapDrawable.isCircular = true
-//                    findViewById(R.id.iv_1).setImageDrawable(circularBitmapDrawable)
-//                }
-//            })
 
 //        Glide.with(this)
 //            .load(url)
@@ -154,14 +139,74 @@ class GlideActivity : AppCompatActivity() {
 ////            .transform(GranularRoundedCorners(offset, offset, offset, offset))
 ////            .transform(BitmapTransitionOptions(), RoundedCorners(dip2px(this, 50f)))
 ////            .transform(RoundedCornersTransform(this, 50f))
-//
-////                        .transition(DrawableTransitionOptions.withCrossFade())
-//
-//
 //            .transform(FitCenter(), RoundedCornersTransformation(offset, 0))
 ////            .transform(CropCircleWithBorderTransformation(), RoundedCornersTransformation(offset, 0))
 //            .into(findViewById(R.id.iv_1))
 //            .waitForLayout()
+
+
+//        testTargets();
+        testTransformation()
+
+    }
+
+    fun testTransformation() {
+
+        var roundedCorners = RoundedCorners(dip2px(this, 35f));
+        var options = RequestOptions.bitmapTransform(roundedCorners).override(
+            this.widthPixels, dip2px(this, 100f)
+        );
+
+        val transform =
+            RoundedCornersTransform(this, dip2px(this, 35f).toFloat())
+        transform.setNeedCorner(true, false, true, false)
+
+        Glide.with(this)
+//            .asBitmap()
+            .load(url)
+            .apply(options)
+//            .fitCenter()
+//        RoundedCornersTransformation
+//            .transform(RoundedCornersTransformation(500, 100))
+//            .transform(GlideRoundTransform(this, 50))
+            .transform(transform)
+            .into(findViewById(R.id.iv_1))
+    }
+
+
+    fun testGlideApp() {
+        GlideApp.with(this)
+            .load(url)
+            .applyAvatarImage()
+            .into(iv);
+    }
+
+
+    fun testTargets() {
+
+
+        val target: CustomTarget<Bitmap?> = object : CustomTarget<Bitmap?>() {
+//            fun onResourceReady(@NonNull resource: Bitmap?, @Nullable transition: Transition<in Bitmap?>) { //回调内容
+////                imageView.setImageBitmap(resource)
+//            }
+
+            override fun onLoadCleared(@Nullable placeholder: Drawable?) { //这个方法在target被回收时调用，如果在除了imageView以外的地方引用了imageView中的bitmap，在这里清除引用以避免崩溃
+            }
+
+            //
+            override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap?>?) {
+                iv.setImageBitmap(resource)
+            }
+        }
+
+        GlideApp.with(this)
+            .asBitmap()
+            .load(url)
+//            .override(this.widthPixels, dip2px(this, 100f))
+//            .transform(RoundedCorners(dip2px(this, 200f)))
+//            .into(BitmapImageViewTarget(iv))
+            .into(target)
+//
 
 
     }

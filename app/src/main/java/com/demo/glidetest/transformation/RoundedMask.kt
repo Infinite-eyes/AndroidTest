@@ -22,7 +22,7 @@ private class RoundedMask internal constructor(d: GradientDrawable) : BitmapTran
 
     val drawable: GradientDrawable
 
-    protected override fun transform(
+    override fun transform(
         @NonNull pool: BitmapPool, @NonNull toTransform: Bitmap, outWidth: Int, outHeight: Int
     ): Bitmap {
         val bitmap =
