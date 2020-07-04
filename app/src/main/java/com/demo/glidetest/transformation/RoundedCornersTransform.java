@@ -108,8 +108,12 @@ public class RoundedCornersTransform implements Transformation<Bitmap> {
 
         Canvas canvas = new Canvas(outBitmap);
         Paint paint = new Paint();
+
+
+        Bitmap mBitmap = Bitmap.createScaledBitmap(source, finalWidth, finalHeight, true);
+
         //关联画笔绘制的原图bitmap
-        BitmapShader shader = new BitmapShader(source, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        BitmapShader shader = new BitmapShader(source, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
         //计算中心位置,进行偏移
         int width = (source.getWidth() - finalWidth) / 2;
         int height = (source.getHeight() - finalHeight) / 2;
@@ -119,7 +123,8 @@ public class RoundedCornersTransform implements Transformation<Bitmap> {
             shader.setLocalMatrix(matrix);
         }
 
-        paint.setShader(shader);
+//        paint.setShader(shader);
+        paint.setShader(new BitmapShader(mBitmap, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
         paint.setAntiAlias(true);
         RectF rectF = new RectF(0.0F, 0.0F, (float) canvas.getWidth(), (float) canvas.getHeight());
         //先绘制圆角矩形
