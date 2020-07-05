@@ -148,7 +148,8 @@ class GlideActivity : AppCompatActivity() {
 //            .waitForLayout()
 
 //        testBaseTransformation()
-        testTransformation()
+//        testTransformation()
+        testTransformation2()
 //        testTargets();
 
 
@@ -195,10 +196,10 @@ class GlideActivity : AppCompatActivity() {
 
     fun testTransformation() {
 
-        var roundedCorners = RoundedCorners(dip2px(this, 35f));
-        var options = RequestOptions.bitmapTransform(roundedCorners).override(
-            this.widthPixels, dip2px(this, 100f)
-        );
+//        var roundedCorners = RoundedCorners(dip2px(this, 35f));
+//        var options = RequestOptions.bitmapTransform(roundedCorners).override(
+//            this.widthPixels, dip2px(this, 100f)
+//        );
 
         val transform =
             RoundedCornersTransform(this, dip2px(this, 1000f).toFloat())
@@ -211,6 +212,19 @@ class GlideActivity : AppCompatActivity() {
 //            .transform(RoundedCornersTransformation(500, 100))
 //            .transform(GlideRoundTransform(this, 50))
             .transform(transform)
+            .into(findViewById(R.id.iv_1))
+    }
+
+    fun testTransformation2() {
+
+        val transform =
+            RoundedCornersTransform(this, dip2px(this, 1000f).toFloat())
+        transform.setNeedCorner(true, true, true, true)
+
+        Glide.with(this)
+            .load(url)
+//            .transform(transform)
+            .transform(RoundedCornersTransformation(dip2px(this, 500f), 0))
             .into(findViewById(R.id.iv_1))
     }
 

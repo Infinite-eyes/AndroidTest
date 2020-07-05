@@ -21,6 +21,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
@@ -68,7 +69,12 @@ public class RoundedCornersTransformation extends BitmapTransformation {
         int width = toTransform.getWidth();
         int height = toTransform.getHeight();
 
-        Bitmap bitmap = pool.get(width, height, Bitmap.Config.ARGB_8888);
+
+//        this.radius *= (float) finalHeight / (float) outHeight;
+
+        //!!
+        Bitmap bitmap = pool.get(outWidth, outHeight, Bitmap.Config.ARGB_8888);
+//        Bitmap bitmap = pool.get(width, height, Bitmap.Config.ARGB_8888);
         bitmap.setHasAlpha(true);
 
         bitmap.setDensity(toTransform.getDensity());
@@ -76,8 +82,20 @@ public class RoundedCornersTransformation extends BitmapTransformation {
         Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setShader(new BitmapShader(toTransform, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-        drawRoundRect(canvas, paint, width, height);
+//        paint.setShader(new BitmapShader(toTransform, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
+
+        BitmapShader shader = new BitmapShader(toTransform, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        Matrix matrix = new Matrix();
+        matrix.setScale(outWidth * 1.0f / toTransform.getWidth(), outHeight * 1.0f / toTransform.getHeight());
+        shader.setLocalMatrix(matrix);
+        paint.setShader(shader);
+
+        RectF rectF = new RectF(0.0F, 0.0F, (float) canvas.getWidth(), (float) canvas.getHeight());
+        canvas.drawRoundRect(rectF, this.radius, this.radius, paint);
+//        drawRoundRect(canvas, paint, width, height);
+
+
+
         return bitmap;
     }
 

@@ -114,6 +114,7 @@ public class RoundedCornersTransform implements Transformation<Bitmap> {
         BitmapShader shader = new BitmapShader(source, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         //计算中心位置,进行偏移
 
+        //v2
         Matrix matrix = new Matrix();
         matrix.setScale(outWidth * 1.0f / source.getWidth(), outHeight * 1.0f / source.getHeight());
         shader.setLocalMatrix(matrix);
@@ -127,6 +128,7 @@ public class RoundedCornersTransform implements Transformation<Bitmap> {
 
         paint.setShader(shader);
 
+        //v1
 //        Bitmap mBitmap = Bitmap.createScaledBitmap(source, finalWidth, finalHeight, true);
 //        paint.setShader(new BitmapShader(mBitmap, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
         paint.setAntiAlias(true);
