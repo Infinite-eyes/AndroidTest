@@ -12,16 +12,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.load.resource.bitmap.TransformationUtils.centerCrop
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.demo.androidtest.R
 import com.demo.glidetest.module.GlideApp
 import com.demo.glidetest.transformation.RoundedCornersTransform
-import com.demo.glidetest.transformation.RoundedCornersTransformation
 import com.demo.utils.dip2px
-import com.demo.utils.widthPixels
 import java.io.File
 
 
@@ -148,8 +146,8 @@ class GlideActivity : AppCompatActivity() {
 //            .waitForLayout()
 
 //        testBaseTransformation()
-//        testTransformation()
-        testTransformation2()
+        testTransformation()
+//        testTransformation2()
 //        testTargets();
 
 
@@ -202,12 +200,17 @@ class GlideActivity : AppCompatActivity() {
 //        );
 
         val transform =
-            RoundedCornersTransform(this, dip2px(this, 1000f).toFloat())
+            RoundedCornersTransform(
+                this,
+                dip2px(this, 100f).toFloat()
+            )
         transform.setNeedCorner(true, true, true, true)
 
         Glide.with(this)
 //            .asBitmap()
+
             .load(url)
+//            .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
 //            .apply(options)
 //            .transform(RoundedCornersTransformation(500, 100))
 //            .transform(GlideRoundTransform(this, 50))
@@ -217,15 +220,18 @@ class GlideActivity : AppCompatActivity() {
 
     fun testTransformation2() {
 
-        val transform =
-            RoundedCornersTransform(this, dip2px(this, 1000f).toFloat())
-        transform.setNeedCorner(true, true, true, true)
-
-        Glide.with(this)
-            .load(url)
-//            .transform(transform)
-            .transform(RoundedCornersTransformation(dip2px(this, 500f), 0))
-            .into(findViewById(R.id.iv_1))
+//        val transform =
+//            RoundedCornersTransform2(
+//                this,
+//                dip2px(this, 1000f).toFloat()
+//            )
+//        transform.setNeedCorner(true, true, true, true)
+//
+//        Glide.with(this)
+//            .load(url)
+////            .transform(transform)
+//            .transform(RoundedCornersTransformation(dip2px(this, 500f), 0))
+//            .into(findViewById(R.id.iv_1))
     }
 
 
