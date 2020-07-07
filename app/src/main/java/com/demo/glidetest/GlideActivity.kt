@@ -14,7 +14,6 @@ import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
-import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.demo.androidtest.R
 import com.demo.glidetest.module.GlideApp
@@ -34,8 +33,8 @@ class GlideActivity : AppCompatActivity() {
 
     lateinit var iv: ImageView
     var url =
+        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594011971181&di=6b3bf4fbef9a4686b2a7cb22e89a1c6b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201311%2F08%2F20131108162842_d4L2d.jpeg"
 //            "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1983299352,541571503&fm=26&gp=0.jpg";
-        "http://huabeifile.grayoss.com/data/20200630/1593496841441612501034.png";
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
