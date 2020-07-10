@@ -37,5 +37,7 @@ ext {
     converter_gson = '2.4.0'
     logging_interceptor = "3.10.0"
 
+    lifecycleVersion = '2.2.0-alpha01'
+
 }
 
