@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-<!--        android:theme="@style/AppTheme"-->
+        <!--        android:theme="@style/AppTheme"-->
         <activity android:name="com.demo.recycleview.RecycleViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,6 +62,11 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.demo.jetpack.workmanager.WorkManagerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
 
     </application>

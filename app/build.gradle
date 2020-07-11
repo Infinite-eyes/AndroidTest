@@ -7,6 +7,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    kotlinOptions{
+        jvmTarget = 1.8
+    }
+
     defaultConfig {
         applicationId "com.demo.androidtest"
         minSdkVersion 16
@@ -46,6 +50,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+    implementation 'androidx.work:work-runtime-ktx:2.4.0-rc01'
 
 
     testImplementation 'junit:junit:4.12'
