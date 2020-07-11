@@ -1,18 +1,11 @@
 package com.demo.lottie
 
-import android.app.Activity
-import android.graphics.drawable.Animatable
-import android.graphics.drawable.AnimatedImageDrawable
-import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Build
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
-import com.airbnb.lottie.LottieAnimationView
 import com.demo.androidtest.R
+import kotlinx.android.synthetic.main.lottie_activity.*
 
 /**
  * @author chenweiming
@@ -27,8 +20,6 @@ class LottieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lottie_activity)
 
-        val lav = findViewById<LottieAnimationView>(R.id.lav)
-        val img = findViewById<ImageView>(R.id.img)
         val motionLayout = findViewById<MotionLayout>(R.id.motion_layout)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //            img.setOnClickListener {
