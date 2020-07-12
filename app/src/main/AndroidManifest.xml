@@ -72,6 +72,11 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        <activity android:name="com.demo.jetpack.viewmodel.kotlin.BaseViewModelActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
 
     </application>
