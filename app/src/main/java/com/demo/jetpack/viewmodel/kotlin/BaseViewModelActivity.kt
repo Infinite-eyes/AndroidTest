@@ -3,6 +3,7 @@ package com.demo.jetpack.viewmodel.kotlin
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
 import com.demo.androidtest.R
@@ -14,9 +15,8 @@ import kotlinx.android.synthetic.main.jepack_base_viewmodel_activity.*
  * @mail cwm930215@gmail.com
  * @since 2020/7/12 9:53 PM
  **/
-class BaseViewModelActivity : FragmentActivity() {
+class BaseViewModelActivity : AppCompatActivity() {
 
-    private var mContentTV: TextView? = null
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.jepack_base_viewmodel_activity)
