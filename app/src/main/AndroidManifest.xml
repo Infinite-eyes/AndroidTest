@@ -82,11 +82,37 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="com.demo.jetpack.downloadmanager.DownloadManagerActivity">
+        <activity android:name="com.demo.jetpack.downloadmanager.v1.DownloadManagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.demo.jetpack.downloadmanager.v2.java.DownloadManager2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+
+        <provider
+            android:name="com.demo.jetpack.downloadmanager.DownloadFileProvider"
+            android:authorities="com.demo.jetpack.downloadmanager.DownloadFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <!--        android:authorities="${applicationId}.DownloadFileProvider"-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/download_files_public" />
+        </provider>
+
+        <receiver android:name="com.demo.jetpack.downloadmanager.v2.java.downloader.FileDownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+
+        </receiver>
 
 
     </application>
