@@ -93,8 +93,11 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
-
+        <activity android:name="com.demo.livedata_retrofit.LiveDataRetrofitActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
         <provider
             android:name="com.demo.jetpack.downloadmanager.DownloadFileProvider"
             android:authorities="com.demo.jetpack.downloadmanager.DownloadFileProvider"
