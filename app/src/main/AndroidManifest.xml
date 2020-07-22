@@ -93,7 +93,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="com.demo.livedata_retrofit.LiveDataRetrofitActivity">
+        <activity android:name="com.demo.livedata_retrofit.view.LiveDataRetrofitActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

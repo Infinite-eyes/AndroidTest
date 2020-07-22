@@ -1,4 +1,4 @@
-package com.demo.livedata_retrofit
+package com.demo.livedata_retrofit.model
 
 /**
  * @author chenweiming

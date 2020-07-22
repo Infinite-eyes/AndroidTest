@@ -1,9 +1,12 @@
-package com.demo.livedata_retrofit
+package com.demo.livedata_retrofit.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.demo.livedata_retrofit.model.WanApi
+import com.demo.livedata_retrofit.model.ApiResponse
+import com.demo.livedata_retrofit.model.BannerVO
 
 /**
  * @author chenweiming

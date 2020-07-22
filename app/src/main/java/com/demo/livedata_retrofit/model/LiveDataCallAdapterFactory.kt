@@ -1,4 +1,4 @@
-package com.demo.livedata_retrofit
+package com.demo.livedata_retrofit.model
 
 import androidx.lifecycle.LiveData
 import retrofit2.CallAdapter
@@ -32,7 +32,9 @@ class LiveDataCallAdapterFactory : Factory() {
         if (observableType !is ParameterizedType) {
             throw IllegalArgumentException("resource must be parameterized")
         }
-        return LiveDataCallAdapter<Any>(observableType)
+        return LiveDataCallAdapter<Any>(
+            observableType
+        )
     }
 
 }

@@ -1,4 +1,4 @@
-package com.demo.livedata_retrofit
+package com.demo.livedata_retrofit.view
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

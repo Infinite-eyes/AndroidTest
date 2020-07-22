@@ -1,15 +1,16 @@
-package com.demo.livedata_retrofit
+package com.demo.livedata_retrofit.view
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.*
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import cn.bingoogolapple.bgabanner.BGABanner
 import com.demo.androidtest.R
 import com.demo.androidtest.databinding.LivedataRetrofitActivityBinding
+import com.demo.livedata_retrofit.model.BannerVO
+import com.demo.livedata_retrofit.viewmodel.HomeVM
+import com.demo.livedata_retrofit.viewmodel.LoadingObserver
 
 
 /**
@@ -31,12 +32,15 @@ class LiveDataRetrofitActivity : AppCompatActivity() {
         val vm = ViewModelProviders.of(this).get(HomeVM::class.java)
         binding.lifecycleOwner = this
         binding.vm = vm
+        binding.run{
+            vm.loading.observe(this@LiveDataRetrofitActivity, LoadingObserver(this@LiveDataRetrofitActivity))
+        }
         initBanner()
     }
 
     private fun initBanner(){
         binding.run{
-            val bannerAdapter = BGABanner.Adapter<ImageView,BannerVO>{_,image,model,_ ->
+            val bannerAdapter = BGABanner.Adapter<ImageView, BannerVO>{ _, image, model, _ ->
                 image.displayWithUrl(model?.imagePath)
             }
             banner.setAdapter(bannerAdapter)

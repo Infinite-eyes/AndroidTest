@@ -1,4 +1,4 @@
-package com.demo.livedata_retrofit
+package com.demo.livedata_retrofit.model
 
 import androidx.lifecycle.LiveData
 import retrofit2.Call
@@ -24,7 +24,11 @@ class LiveDataCallAdapter<T>(private val responseType: Type) : CallAdapter<T, Li
                 if (started.compareAndSet(false, true)) {
                     call.enqueue(object : Callback<T> {
                         override fun onFailure(call: Call<T>, t: Throwable) {
-                            val value = ApiResponse<T>(null, -1, t.message ?: "") as T
+                            val value = ApiResponse<T>(
+                                null,
+                                -1,
+                                t.message ?: ""
+                            ) as T
                             postValue(value)
                         }
 
