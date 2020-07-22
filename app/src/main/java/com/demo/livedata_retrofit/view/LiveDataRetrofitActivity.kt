@@ -23,6 +23,8 @@ class LiveDataRetrofitActivity : AppCompatActivity() {
 
     lateinit var binding: LivedataRetrofitActivityBinding
 
+    val loadingState = MutableLiveData<Boolean>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(
@@ -32,21 +34,38 @@ class LiveDataRetrofitActivity : AppCompatActivity() {
         val vm = ViewModelProviders.of(this).get(HomeVM::class.java)
         binding.lifecycleOwner = this
         binding.vm = vm
-        binding.run{
-            vm.loading.observe(this@LiveDataRetrofitActivity, LoadingObserver(this@LiveDataRetrofitActivity))
-        }
+
         initBanner()
+
+
     }
 
-    private fun initBanner(){
-        binding.run{
-            val bannerAdapter = BGABanner.Adapter<ImageView, BannerVO>{ _, image, model, _ ->
+    private fun initBanner() {
+        binding.run {
+
+//            dialog v1
+//            vm.loading.observe(
+//                this@LiveDataRetrofitActivity,
+//                LoadingObserver(this@LiveDataRetrofitActivity)
+//            )
+//            dialog v2
+            loadingState.observe(
+                this@LiveDataRetrofitActivity,
+                LoadingObserver(this@LiveDataRetrofitActivity)
+            )
+            vm?.attachLoading(loadingState)
+
+
+            //banner
+            val bannerAdapter = BGABanner.Adapter<ImageView, BannerVO> { _, image, model, _ ->
                 image.displayWithUrl(model?.imagePath)
             }
             banner.setAdapter(bannerAdapter)
             vm?.banners?.observe(this@LiveDataRetrofitActivity, Observer {
-                banner.setData(it,null)
+                banner.setData(it, null)
             })
+
+
         }
     }
 
