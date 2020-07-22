@@ -6,6 +6,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.*
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import cn.bingoogolapple.bgabanner.BGABanner
 import com.demo.androidtest.R
 import com.demo.androidtest.databinding.LivedataRetrofitActivityBinding
@@ -31,7 +32,6 @@ class LiveDataRetrofitActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.vm = vm
         initBanner()
-
     }
 
     private fun initBanner(){

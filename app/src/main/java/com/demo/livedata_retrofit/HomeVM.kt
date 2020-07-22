@@ -15,18 +15,24 @@ class HomeVM : ViewModel() {
 
     private val refreshTrigger = MutableLiveData<Boolean>()
     private val api = WanApi.get()
+
+
     private val bannerList: LiveData<ApiResponse<List<BannerVO>>> =
         Transformations.switchMap(refreshTrigger) {
             api.bannerList()
         }
 
+    val loading = MutableLiveData<Boolean>()
+
     val banners: LiveData<List<BannerVO>> = Transformations.map(bannerList) {
+        loading.value = false
         it.data ?: ArrayList()
     }
 
 
     fun loadData() {
         refreshTrigger.value = true
+        loading.value = true
     }
 
 
