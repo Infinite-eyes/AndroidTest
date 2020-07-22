@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.*
+import cn.bingoogolapple.bgabanner.BGABanner
 import com.demo.androidtest.R
+import com.demo.androidtest.databinding.LivedataRetrofitActivityBinding
+
 
 /**
  * @author chenweiming
@@ -15,18 +19,33 @@ import com.demo.androidtest.R
  **/
 class LiveDataRetrofitActivity : AppCompatActivity() {
 
+    lateinit var binding: LivedataRetrofitActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.glide_test_activity)
-        loadData()
+        binding = DataBindingUtil.setContentView(
+            this,
+            R.layout.livedata_retrofit_activity
+        )
+        val vm = ViewModelProviders.of(this).get(HomeVM::class.java)
+        binding.lifecycleOwner = this
+        binding.vm = vm
+        initBanner()
+
     }
 
-    fun loadData() {
-        val bannerList = WanApi.get().bannerList()
-        bannerList.observe(this, Observer {
-            Log.e("main", "res:$it")
-        })
+    private fun initBanner(){
+        binding.run{
+            val bannerAdapter = BGABanner.Adapter<ImageView,BannerVO>{_,image,model,_ ->
+                image.displayWithUrl(model?.imagePath)
+            }
+            banner.setAdapter(bannerAdapter)
+            vm?.banners?.observe(this@LiveDataRetrofitActivity, Observer {
+                banner.setData(it,null)
+            })
+        }
     }
+
 
 }
+
