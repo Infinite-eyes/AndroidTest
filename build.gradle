@@ -39,5 +39,7 @@ ext {
 
     lifecycleVersion = '2.2.0-alpha01'
 
+    smartRefreshLayout = '2.0.1'
+
 }
 

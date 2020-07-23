@@ -98,4 +98,8 @@ dependencies {
 
     implementation 'cn.bingoogolapple:bga-banner:3.0.0'
 
+    implementation "com.scwang.smart:refresh-layout-kernel:$rootProject.smartRefreshLayout"
+    implementation "com.scwang.smart:refresh-header-classics:$rootProject.smartRefreshLayout"
+
+
 }
