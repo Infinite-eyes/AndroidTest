@@ -104,6 +104,3 @@ class DiffCallBack extends DiffUtil.Callback {
 //        }
 }
 
-
-
-}

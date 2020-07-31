@@ -1,6 +1,5 @@
 package com.demo.livedata_retrofit.adapters
 
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -46,17 +45,17 @@ class ArticleAdapter : ListAdapter<Data, RecyclerView.ViewHolder>(ArticleDiffCal
         }
     }
 
+    //todo
+
+    private class ArticleDiffCallback : DiffUtil.ItemCallback<Data>() {
+        override fun areItemsTheSame(oldItem: Data, newItem: Data): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Data, newItem: Data): Boolean {
+            return oldItem == newItem
+        }
+
+    }
 }
 
-//todo
-
-private class ArticleDiffCallback : DiffUtil.ItemCallback<Data>() {
-    override fun areItemsTheSame(oldItem: Data, newItem: Data): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: Data, newItem: Data): Boolean {
-        return oldItem == newItem
-    }
-
-}

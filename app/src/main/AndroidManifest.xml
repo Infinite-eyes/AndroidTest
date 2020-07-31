@@ -98,6 +98,17 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        <activity android:name="com.demo.launchermodel.CActivity" />
+        <activity
+            android:name="com.demo.launchermodel.AActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.demo.launchermodel.BActivity" />
+
         <provider
             android:name="com.demo.jetpack.downloadmanager.DownloadFileProvider"
             android:authorities="com.demo.jetpack.downloadmanager.DownloadFileProvider"
