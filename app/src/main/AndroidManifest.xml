@@ -98,6 +98,8 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
+
         <activity android:name="com.demo.launchermodel.CActivity" />
         <activity
             android:name="com.demo.launchermodel.AActivity"
@@ -108,6 +110,17 @@
             </intent-filter>
         </activity>
         <activity android:name="com.demo.launchermodel.BActivity" />
+
+
+
+
+        <activity android:name="com.demo.motioneditor.MotionEditorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+
 
         <provider
             android:name="com.demo.jetpack.downloadmanager.DownloadFileProvider"
