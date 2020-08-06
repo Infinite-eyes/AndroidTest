@@ -6,7 +6,7 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.0'
@@ -21,7 +21,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
     }
 }
 
@@ -40,6 +40,8 @@ ext {
     lifecycleVersion = '2.2.0-alpha01'
 
     smartRefreshLayout = '2.0.1'
+
+    fragment_ktx = '1.2.2'
 
 }
 
