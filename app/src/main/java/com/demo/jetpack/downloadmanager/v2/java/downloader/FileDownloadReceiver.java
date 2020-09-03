@@ -19,6 +19,7 @@ import java.util.Arrays;
  * @since 2020/7/14 5:02 PM
  **/
 public class FileDownloadReceiver extends BroadcastReceiver {
+
     @Override
     public void onReceive(Context context, Intent intent) {
         System.out.println("intent=======action===" + intent.getAction());

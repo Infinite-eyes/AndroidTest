@@ -43,5 +43,6 @@ ext {
 
     fragment_ktx = '1.2.2'
 
+    dagger = '2.28.3'
 }
 

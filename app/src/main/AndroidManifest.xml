@@ -132,6 +132,13 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        <activity android:name="com.demo.dagger.DaggerActivity" />
+        <activity android:name="com.demo.dagger.v2.Dagger2Activity" />
+        <activity android:name="com.demo.handlerthread.HandlerThreadMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
 
         <provider
