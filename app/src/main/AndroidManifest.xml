@@ -44,11 +44,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="com.demo.coroutines.CoroutinesActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
 
         <activity android:name="com.demo.jetpack.viewmodel.java.LiveData1MainActivity">
             <intent-filter>
@@ -135,6 +130,23 @@
         <activity android:name="com.demo.dagger.DaggerActivity" />
         <activity android:name="com.demo.dagger.v2.Dagger2Activity" />
         <activity android:name="com.demo.handlerthread.HandlerThreadMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.demo.coroutines.v1.CoroutinesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.demo.coroutines.CoroutinesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.demo.coroutines.v2.CoroutinesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

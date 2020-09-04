@@ -23,6 +23,13 @@ import kotlin.coroutines.CoroutineContext
  **/
 class CoroutinesActivity : AppCompatActivity(), CoroutineScope {
 
+
+//    launch  - 创建协程
+//    async   - 创建带返回值的协程，返回的是 Deferred 类
+//    withContext - 不创建新的协程，在指定协程上运行代码块
+//    runBlocking -不是 GlobalScope 的 API，可以独立使用，区别是 runBlocking 里面的 delay 会阻塞线程，而 launch 创建的不会
+
+
     //v1
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
