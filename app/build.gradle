@@ -49,6 +49,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
+
+    implementation Deps.appcompat
+
+
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta7'
@@ -111,6 +115,11 @@ dependencies {
 
     implementation "com.google.dagger:dagger:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger"
+
+
+//    implementation 'com.blankj:utilcode:1.29.0'
+// if u use AndroidX, use the following
+    implementation 'com.blankj:utilcodex:1.29.0'
 
 
 
