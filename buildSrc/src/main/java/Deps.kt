@@ -22,7 +22,7 @@ object Versions {
 
 
     const val appcompat = "1.1.0"
-    const val constraintLayout = "1.1.3"
+    const val constraintLayout = "2.0.0-beta7"
     const val retrofit = "2.7.1"
     const val retrofit_converter_gson = "2.6.2"
     const val okhttp_logging_interceptor = "4.0.0"

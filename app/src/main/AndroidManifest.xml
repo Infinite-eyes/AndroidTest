@@ -15,7 +15,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        android:theme="@style/AppTheme">
         <!--        android:theme="@style/AppTheme"-->
         <activity android:name="com.demo.recycleview.RecycleViewActivity">
             <intent-filter>
@@ -147,6 +147,11 @@
             </intent-filter>
         </activity>
         <activity android:name="com.demo.coroutines.v2.CoroutinesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.demo.material.bottomnavigationview.BottomNavigationViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
