@@ -151,7 +151,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="com.demo.material.bottomnavigationview.BottomNavigationViewActivity">
+        <activity android:name="com.demo.materialdesign.bottomnavigationview.BottomNavigationViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

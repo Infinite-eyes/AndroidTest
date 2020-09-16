@@ -1,4 +1,4 @@
-package com.demo.material.bottomnavigationview
+package com.demo.materialdesign.bottomnavigationview
 
 import android.os.Bundle
 import android.view.MenuItem
