@@ -91,14 +91,13 @@ public abstract class FileDownManager {
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
 //        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
 
-        File file =
-                new File(getContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "study163.apk");
+        File file = new File(getContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "study163.apk");
 
         request.setDestinationUri(Uri.fromFile(file));
 //        request.setDestinationInExternalPublicDir(saveDir, fileName);
 
 
-        requestCustom(request);
+//        requestCustom(request);
         try {
             long id = downloadManager.enqueue(request);
             getSp().edit().putLong(downloadKey, id).commit();
